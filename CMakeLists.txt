@@ -46,7 +46,7 @@ option (ENABLE_HTML_DOCS "Build MongoDB C Driver HTML documentation." OFF)
 option (ENABLE_EXTRA_ALIGNMENT
    "Turn on extra alignment of libbson types. Set to ON/OFF, default ON.\
  Required for the 1.0 ABI but better disabled."
-   ON
+ OFF
 )
 option (ENABLE_RDTSCP
    "Fast performance counters on Intel using the RDTSCP instruction"
