@@ -43,11 +43,19 @@ set (ENABLE_ZLIB AUTO CACHE STRING "Enable zlib support")
 set (ENABLE_ZSTD AUTO CACHE STRING "Enable zstd support. Set to ON/AUTO/OFF, default AUTO.")
 option (ENABLE_MAN_PAGES "Build MongoDB C Driver manual pages." OFF)
 option (ENABLE_HTML_DOCS "Build MongoDB C Driver HTML documentation." OFF)
-option (ENABLE_EXTRA_ALIGNMENT
-   "Turn on extra alignment of libbson types. Set to ON/OFF, default ON.\
- Required for the 1.0 ABI but better disabled."
-   ON
-)
+if (APPLE)
+	option (ENABLE_EXTRA_ALIGNMENT
+	   "Turn on extra alignment of libbson types. Set to ON/OFF, default ON.\
+	 Required for the 1.0 ABI but better disabled."
+	 OFF
+	)
+else()
+	option (ENABLE_EXTRA_ALIGNMENT
+	   "Turn on extra alignment of libbson types. Set to ON/OFF, default ON.\
+	 Required for the 1.0 ABI but better disabled."
+	 ON
+	)
+endif ()
 option (ENABLE_RDTSCP
    "Fast performance counters on Intel using the RDTSCP instruction"
    OFF
